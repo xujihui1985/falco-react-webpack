@@ -80,13 +80,27 @@ const App = React.createClass({
         this.setState({
           recipes: _.values(data.json.recipes)
         });
+        this.setState({
+          aaa: ['bbbb']
+        });
       })
   },
+  
+  handleClick() {
+    this.setState({
+      bbb: 'bbb'
+    });
+    this.setState({
+      ccc: 'ccc'
+    });
+  },
+  
   
   render: function() {
     console.log(this.state);
     return (
       <div>
+        <button onClick={this.handleClick}>render</button>
         {this.state.recipes.map((recipe, index)=>{
           return (
             <Recipe key={index} {...recipe}/>
